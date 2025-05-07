@@ -6,83 +6,83 @@ using namespace std;
 typedef int KeyType;
 typedef int DataType;
 
-//´æ·ÅÊı¾İµÄ½áµã
+//å­˜æ”¾æ•°æ®çš„ç»“ç‚¹
 struct ReeType
 {
 	KeyType key;
 };
 
-//Õ¹Ê¾ÅÅĞòºóµÄkey
+//å±•ç¤ºæ’åºåçš„key
 void ShowKey(ReeType R[], int n);
 
-//Õ¹Ê¾ÅÅĞò´ÎÊı
+//å±•ç¤ºæ’åºæ¬¡æ•°
 void ShowNum(int& num);
 
-//Õ¹Ê¾ÅÅĞòºóµÄÊı×é
+//å±•ç¤ºæ’åºåçš„æ•°ç»„
 void Show(ReeType R[], int n, int &num);
 
-//»ñÈ¡Ëæ»úÊıÊı×é
+//è·å–éšæœºæ•°æ•°ç»„
 void GetRand(ReeType R[], ReeType A[], ReeType B[], ReeType C[], ReeType D[], ReeType E[]);
 
-//»ñÈ¡Ëæ»úÊıÊı×é
+//è·å–éšæœºæ•°æ•°ç»„
 void GetRand(ReeType R[]);
 
-//»ñÈ¡Ëæ»ú×ÖÄ¸Êı×é£¨×ÖÄ¸²»ÖØ¸´£©
+//è·å–éšæœºå­—æ¯æ•°ç»„ï¼ˆå­—æ¯ä¸é‡å¤ï¼‰
 void GetRand(char *ch);
 
-//Ö±²åÅÅĞò·¨
+//ç›´æ’æ’åºæ³•
 void InsertSort(ReeType R[], int n);
 
-//Ã°ÅİÅÅĞò·¨
+//å†’æ³¡æ’åºæ³•
 void BubbletSort(ReeType A[], int n);
 
-//Ë«ÏòÃ°ÅİÅÅĞò·¨
+//åŒå‘å†’æ³¡æ’åºæ³•
 void BubbletSort1(ReeType R[], int n);
 
-//¿ìËÙÅÅĞò·¨1
-//ÌØµã£ºÊ¹ÓÃÏÔÊ½½»»»·½Ê½£¬Ñ¡ÔñÊı×éÄ©Î²ÔªËØ×÷Îª»ù×¼
+//å¿«é€Ÿæ’åºæ³•1
+//ç‰¹ç‚¹ï¼šä½¿ç”¨æ˜¾å¼äº¤æ¢æ–¹å¼ï¼Œé€‰æ‹©æ•°ç»„æœ«å°¾å…ƒç´ ä½œä¸ºåŸºå‡†
 void QuickSort(ReeType R[], int s, int t, int& n);
 
-//¿ìËÙÅÅĞòËã·¨2
-//ÌØµã£ºÊ¹ÓÃÍÚ¿ÓÌîÊı·½Ê½£¬Ñ¡ÔñÊı×éÊ×ÔªËØ×÷Îª»ù×¼
+//å¿«é€Ÿæ’åºç®—æ³•2
+//ç‰¹ç‚¹ï¼šä½¿ç”¨æŒ–å‘å¡«æ•°æ–¹å¼ï¼Œé€‰æ‹©æ•°ç»„é¦–å…ƒç´ ä½œä¸ºåŸºå‡†
 int partion1(ReeType R[], int s, int t, int& n);
 
-//¶ÑÅÅĞò·¨
+//å †æ’åºæ³•
 void HeapSort(ReeType R[], int n, int& no);
 
-//¶şÂ·¹é²¢ÅÅĞò·¨
+//äºŒè·¯å½’å¹¶æ’åºæ³•
 void MergeSort(ReeType R[], int n, int& no);
 
-//Ë³Ğò²éÕÒ
+//é¡ºåºæŸ¥æ‰¾
 void SeqSearch(char R[], KeyType k);
 
-//·Çµİ¹é¶ş·Ö²éÕÒ
+//éé€’å½’äºŒåˆ†æŸ¥æ‰¾
 int BinSearch_0(ReeType R[], KeyType k, int n);
 
-//µİ¹é¶ş·Ö²éÕÒ
+//é€’å½’äºŒåˆ†æŸ¥æ‰¾
 int BinSearch_1(ReeType R[], KeyType k, int low, int high);
 
-//¶ş²æÅÅĞòÊ÷µÄ½áµã
+//äºŒå‰æ’åºæ ‘çš„ç»“ç‚¹
 struct BSTNode
 {
 	char key;
 	BSTNode* lchild, *rchild;
 };
 
-//²åÈëÅÅĞò¶ş²æÊ÷µÄÒ»¸ö½áµã
+//æ’å…¥æ’åºäºŒå‰æ ‘çš„ä¸€ä¸ªç»“ç‚¹
 BSTNode* InsertBSTNode(BSTNode*& root, char k);
 
-//Éú³É¶ş²æÅÅĞòÊ÷
+//ç”ŸæˆäºŒå‰æ’åºæ ‘
 void CreatBSTree(BSTNode*& root, char* ch);
 
-//µİ¹éÊä³öÏÈĞòĞòÁĞ
+//é€’å½’è¾“å‡ºå…ˆåºåºåˆ—
 void PreOrder(BSTNode* root);
 
-//µİ¹éÊä³öÖĞĞòĞòÁĞ
+//é€’å½’è¾“å‡ºä¸­åºåºåˆ—
 void InOrder(BSTNode* root);
 
-//¶ş²æÅÅĞòÊ÷µÄ·Çµİ¹é²éÕÒ
+//äºŒå‰æ’åºæ ‘çš„éé€’å½’æŸ¥æ‰¾
 BSTNode* SearchBST_0(BSTNode* root, KeyType k);
 
-//¶ş²æÅÅĞòÊ÷µÄµİ¹é²éÕÒ
+//äºŒå‰æ’åºæ ‘çš„é€’å½’æŸ¥æ‰¾
 BSTNode* SearchBST_1(BSTNode* root, KeyType k);
