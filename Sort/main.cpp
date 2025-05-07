@@ -10,67 +10,67 @@ int main()
 	//int n = 0;
 
 	//GetRand(R,A,B,C,D,E);
-	//cout << "Ô­Ê¼Êı¾İÎª£º";
+	//cout << "åŸå§‹æ•°æ®ä¸ºï¼š";
 	//for (int i = 0; i < 10; i++)
 	//	cout << R[i].key << " ";
 	//cout << endl << endl;
 
-	//Ö±²åÅÅĞò·¨
-	//cout << "Ö±²åÅÅĞò·¨" << endl;
+	//ç›´æ’æ’åºæ³•
+	//cout << "ç›´æ’æ’åºæ³•" << endl;
 	//InsertSort(R, 10);
 
-	//Ã°ÅİÅÅĞò·¨
-	//cout << "Ã°ÅİÅÅĞò·¨" << endl;
+	//å†’æ³¡æ’åºæ³•
+	//cout << "å†’æ³¡æ’åºæ³•" << endl;
 	//BubbletSort(A, 10);
 
-	//Ë«ÏòÃ°ÅİÅÅĞò·¨
-	//cout << "Ë«ÏòÃ°ÅİÅÅĞò·¨" << endl;
+	//åŒå‘å†’æ³¡æ’åºæ³•
+	//cout << "åŒå‘å†’æ³¡æ’åºæ³•" << endl;
 	//BubbletSort1(B, 10);
 
-	//¿ìËÙÅÅĞò·¨
-	//cout << "¿ìËÙÅÅĞò·¨" << endl;
+	//å¿«é€Ÿæ’åºæ³•
+	//cout << "å¿«é€Ÿæ’åºæ³•" << endl;
 	//QuickSort(C, 0, 9, n);
 	//Show(C, 10, n);
 
-	//¶ÑÅÅĞò·¨
-	//cout << "¶ÑÅÅĞò·¨" << endl;
+	//å †æ’åºæ³•
+	//cout << "å †æ’åºæ³•" << endl;
 	//HeapSort(D, 10,n);
 	//Show(D, 10, n);
 
-	//¶şÂ·¹é²¢ÅÅĞò·¨
-	//cout << "¶şÂ·¹é²¢ÅÅĞò·¨" << endl;
+	//äºŒè·¯å½’å¹¶æ’åºæ³•
+	//cout << "äºŒè·¯å½’å¹¶æ’åºæ³•" << endl;
 	//MergeSort(E, 10, n);;
 	//Show(E, 10, n);
 
 	//char input;
 	//char ch[16];
 
-	//Ë³Ğò²éÕÒ
+	//é¡ºåºæŸ¥æ‰¾
 	//GetRand(ch);
-	//cout << "ÇëÊäÈëÄãÏë²éÕÒµÄÊı×Ö£º";
+	//cout << "è¯·è¾“å…¥ä½ æƒ³æŸ¥æ‰¾çš„æ•°å­—ï¼š";
 	//cin >> input;
 	//SeqSearch(ch, input);
 
-	//¶ş·Ö²éÕÒ
+	//äºŒåˆ†æŸ¥æ‰¾
 	// BinSearch_0(R, input, 10);
 
-	//ÅÅĞò¶ş²æÊ÷µÄ²éÕÒ
-	/*cout << "ÇëÊäÈë¶ş²æÊ÷µÄ×ÖÄ¸" << endl;
+	//æ’åºäºŒå‰æ ‘çš„æŸ¥æ‰¾
+	/*cout << "è¯·è¾“å…¥äºŒå‰æ ‘çš„å­—æ¯" << endl;
 	for (int i = 0; i < 10; i++)
 		cin >> ch[i];
 	BSTNode *root;
 	CreatBSTree(root, ch);
-	cout << "ÏÈĞò±éÀú½á¹û£º";
+	cout << "å…ˆåºéå†ç»“æœï¼š";
 	PreOrder(root);
 	cout << endl;
-	cout << "ÖĞĞòĞò±éÀú½á¹û£º";
+	cout << "ä¸­åºåºéå†ç»“æœï¼š";
 	InOrder(root);
 	cout << endl;
-	cout << "ÇëÊäÈëÄãÏë²éÕÒµÄ×ÖÄ¸£º";
+	cout << "è¯·è¾“å…¥ä½ æƒ³æŸ¥æ‰¾çš„å­—æ¯ï¼š";
 	cin >> input;
 	BSTNode *result=SearchBST_0(root, input);
 	if (result != nullptr)
 		cout << result->key << endl;
 	else
-		cout << "²éÕÒÊ§°Ü";*/
+		cout << "æŸ¥æ‰¾å¤±è´¥";*/
 }
