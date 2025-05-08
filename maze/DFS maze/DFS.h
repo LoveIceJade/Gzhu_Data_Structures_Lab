@@ -13,26 +13,26 @@ struct Box
 struct StType
 {
 	Box data[MaxSize];
-	int top; //Õ»¶¥Ö¸Õë
+	int top; //æ ˆé¡¶æŒ‡é’ˆ
 };
 
-//³õÊ¼»¯Ë³Ğò±í
+//åˆå§‹åŒ–é¡ºåºè¡¨
 void InitStack(StType*& s);
 
-//ÅĞ¶ÏÊÇ·ñ¿Õ±í
+//åˆ¤æ–­æ˜¯å¦ç©ºè¡¨
 bool EmptyStack(StType* s);
 
-//ÈëÕ»
+//å…¥æ ˆ
 bool Push(StType*& s, Box& data);
 
-//½øÕ»
+//è¿›æ ˆ
 bool Pop(StType*& s, Box& e);
 
-//È¡Õ»¶¥ÔªËØ
+//å–æ ˆé¡¶å…ƒç´ 
 bool GetTop(StType* s, Box& e);
 
-//Ïú»ÙÕ»
+//é”€æ¯æ ˆ
 void DestroyStack(StType*& s);
 
-//×ßÃÔ¹¬
+//èµ°è¿·å®«
 void FindAllPaths(int xi, int yi, int xe, int ye);
