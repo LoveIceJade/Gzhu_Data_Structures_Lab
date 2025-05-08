@@ -1,11 +1,11 @@
-//ÕâÊÇÉùÃ÷Êı¾İÀàĞÍºÍÏàÓ¦º¯ÊıµÄÎÄ¼ş
+//è¿™æ˜¯å£°æ˜æ•°æ®ç±»å‹å’Œç›¸åº”å‡½æ•°çš„æ–‡ä»¶
 #include <iostream>
 #include<ctime>
 using namespace std;
 
 typedef int DataType;
 
-//»ñµÃÒ»¸öËæ»úÈıÎ»ÕûÊı
+//è·å¾—ä¸€ä¸ªéšæœºä¸‰ä½æ•´æ•°
 int GetRand();
 
 typedef struct LNode
@@ -14,26 +14,26 @@ typedef struct LNode
 	struct LNode* next;
 }LinkNode;
 
-//³õÊ¼»¯µ¥Á´±í
+//åˆå§‹åŒ–å•é“¾è¡¨
 void  InitList(LNode*& p);
 
-//Î²²å·¨½¨Á¢Á´±í
+//å°¾æ’æ³•å»ºç«‹é“¾è¡¨
 void CreatList(LNode*& p, DataType a[], int n);
 
-//±éÀúµ¥Á´±í
+//éå†å•é“¾è¡¨
 void TraveList(LNode* p);
 
-//Ïòµ¥Á´±íµÄÖ¸¶¨Î»ÖÃ²åÈëÔªËØ
+//å‘å•é“¾è¡¨çš„æŒ‡å®šä½ç½®æ’å…¥å…ƒç´ 
 bool Listinsert(LNode*& p, int pos, DataType item);
 
-//ÑéÖ¤²åÈëÊÇ·ñÕıÈ·
+//éªŒè¯æ’å…¥æ˜¯å¦æ­£ç¡®
 bool TraveList_1(LNode*& p,int &pos,int &item);
 
-//É¾³ıµÚÒ»¸öÓëÖ¸¶¨ÖµÆ¥ÅäµÄÔªËØ
+//åˆ é™¤ç¬¬ä¸€ä¸ªä¸æŒ‡å®šå€¼åŒ¹é…çš„å…ƒç´ 
 bool Delete_item(LNode*& p, DataType item);
 
-//·­×ªÁ´±í
+//ç¿»è½¬é“¾è¡¨
 void ReserveList(LNode*& p);
 
-//·Ö¸îÁ´±í
+//åˆ†å‰²é“¾è¡¨
 void SplitList(LNode*& p, int value);
