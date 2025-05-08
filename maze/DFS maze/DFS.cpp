@@ -2,7 +2,7 @@
 #include <iostream>
 using namespace std;
 
-// ÃÔ¹¬Êı×é: 0±íÊ¾Í¨µÀ£¬1±íÊ¾Ç½
+// è¿·å®«æ•°ç»„: 0è¡¨ç¤ºé€šé“ï¼Œ1è¡¨ç¤ºå¢™
 int mg[10][10] = {
     { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
     { 1, 0, 0, 1, 0, 0, 0, 1, 0, 1 },
@@ -16,20 +16,20 @@ int mg[10][10] = {
     { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
 };
 
-// ³õÊ¼»¯Õ»
+// åˆå§‹åŒ–æ ˆ
 void InitStack(StType*& s) {
     s = new StType;
     s->top = -1;
 }
 
-// ÅĞ¶ÏÊÇ·ñ¿ÕÕ»
+// åˆ¤æ–­æ˜¯å¦ç©ºæ ˆ
 bool EmptyStack(StType* s) {
     return(s->top == -1);
 }
 
-// ÈëÕ»
+// å…¥æ ˆ
 bool Push(StType*& s, Box& data) {
-    // Õ»Âú²»½ø
+    // æ ˆæ»¡ä¸è¿›
     if (s->top == MaxSize - 1) {
         return false;
     }
@@ -38,7 +38,7 @@ bool Push(StType*& s, Box& data) {
     return true;
 }
 
-// ³öÕ»
+// å‡ºæ ˆ
 bool Pop(StType*& s, Box& e) {
     if (s->top == -1) {
         return false;
@@ -48,85 +48,85 @@ bool Pop(StType*& s, Box& e) {
     return true;
 }
 
-// È¡Õ»¶¥ÔªËØ
+// å–æ ˆé¡¶å…ƒç´ 
 bool GetTop(StType* s, Box& e) {
     if (s->top == -1) {
-        cout << "Õ»¿Õ£¬ÎŞÕ»¶¥ÔªËØ" << endl;
+        cout << "æ ˆç©ºï¼Œæ— æ ˆé¡¶å…ƒç´ " << endl;
         return false;
     }
     e = s->data[s->top];
     return true;
 }
 
-// Ïú»ÙÕ»
+// é”€æ¯æ ˆ
 void DestroyStack(StType*& s) {
     delete s;
 }
 
-// ÕÒµ½ËùÓĞÃÔ¹¬Â·¾¶
+// æ‰¾åˆ°æ‰€æœ‰è¿·å®«è·¯å¾„
 void FindAllPaths(int xi, int yi, int xe, int ye) {
     Box e;
     int i, j, di, il, jl;
     bool find;
     StType* st;
     InitStack(st);
-    // ³õÊ¼»¯Æğµã
+    // åˆå§‹åŒ–èµ·ç‚¹
 
     e.i = xi; e.j = yi; e.di = -1;
     Push(st, e);
-    mg[xi][yi] = -1; // ±ê¼ÇÆğµãÒÑ·ÃÎÊ
+    mg[xi][yi] = -1; // æ ‡è®°èµ·ç‚¹å·²è®¿é—®
 
-    // ¿ªÊ¼ËÑË÷
+    // å¼€å§‹æœç´¢
     while (!EmptyStack(st)) {
         GetTop(st, e);
         i = e.i; j = e.j; di = e.di;
 
-        // ÕÒµ½ÖÕµã
+        // æ‰¾åˆ°ç»ˆç‚¹
         if (i == xe && j == ye) {
-            cout << "Ò»ÌõÃÔ¹¬Â·¾¶ÈçÏÂ£º" << endl;
+            cout << "ä¸€æ¡è¿·å®«è·¯å¾„å¦‚ä¸‹ï¼š" << endl;
 
-            // ´òÓ¡µ±Ç°Õ»ÖĞµÄÂ·¾¶
+            // æ‰“å°å½“å‰æ ˆä¸­çš„è·¯å¾„
             Box path[MaxSize * MaxSize];
             int k = 0;
             StType* tempSt = new StType;
             InitStack(tempSt);
             Box tempBox;
 
-            // ±£´æÕ»ÖĞÔªËØµ½ÁÙÊ±Õ»
+            // ä¿å­˜æ ˆä¸­å…ƒç´ åˆ°ä¸´æ—¶æ ˆ
             while (!EmptyStack(st)) {
                 Pop(st, tempBox);
                 Push(tempSt, tempBox);
             }
 
-            // »Ö¸´Ô­Õ»²¢Í¬Ê±±£´æÂ·¾¶µ½Êı×é
+            // æ¢å¤åŸæ ˆå¹¶åŒæ—¶ä¿å­˜è·¯å¾„åˆ°æ•°ç»„
             while (!EmptyStack(tempSt)) {
                 Pop(tempSt, tempBox);
                 Push(st, tempBox);
                 path[k++] = tempBox;
             }
 
-            // ´òÓ¡Â·¾¶
+            // æ‰“å°è·¯å¾„
             for (int p = 0; p < k; p++) {
                 cout << "\t(" << path[p].i << "," << path[p].j << ")";
                 if ((p + 1) % 5 == 0) cout << endl;
             }
             cout << endl;
 
-            // ²»ÒªÔÚÖÕµã¼ÌĞøËÑË÷£¬µ¯³öÖÕµã²¢»ØËİ
+            // ä¸è¦åœ¨ç»ˆç‚¹ç»§ç»­æœç´¢ï¼Œå¼¹å‡ºç»ˆç‚¹å¹¶å›æº¯
             Pop(st, e);
-            mg[e.i][e.j] = 0; // ÖØÖÃÖÕµã±ê¼ÇÎªÎ´·ÃÎÊ
+            mg[e.i][e.j] = 0; // é‡ç½®ç»ˆç‚¹æ ‡è®°ä¸ºæœªè®¿é—®
             continue;
         }
 
-        // ³¢ÊÔËÄ¸ö·½Ïò
+        // å°è¯•å››ä¸ªæ–¹å‘
         find = false;
         while (di < 4 && !find) {
             di++;
             switch (di) {
-            case 0: il = i - 1; jl = j; break; // ÉÏ
-            case 1: il = i; jl = j + 1; break; // ÓÒ
-            case 2: il = i + 1; jl = j; break; // ÏÂ
-            case 3: il = i; jl = j - 1; break; // ×ó
+            case 0: il = i - 1; jl = j; break; // ä¸Š
+            case 1: il = i; jl = j + 1; break; // å³
+            case 2: il = i + 1; jl = j; break; // ä¸‹
+            case 3: il = i; jl = j - 1; break; // å·¦
             }
             if (il >= 0 && il < MaxSize && jl >= 0 && jl < MaxSize && mg[il][jl] == 0) 
             {
@@ -135,17 +135,17 @@ void FindAllPaths(int xi, int yi, int xe, int ye) {
         }
 
         if (find) {
-            // ¸üĞÂµ±Ç°Î»ÖÃµÄ·½ÏòĞÅÏ¢
+            // æ›´æ–°å½“å‰ä½ç½®çš„æ–¹å‘ä¿¡æ¯
             st->data[st->top].di = di;
-            // Ç°½øµ½ĞÂÎ»ÖÃ
+            // å‰è¿›åˆ°æ–°ä½ç½®
             e.i = il; e.j = jl; e.di = -1;
             Push(st, e);
-            mg[il][jl] = -1; // ±ê¼ÇĞÂÎ»ÖÃÒÑ·ÃÎÊ
+            mg[il][jl] = -1; // æ ‡è®°æ–°ä½ç½®å·²è®¿é—®
         }
         else {
-            // »ØËİ
+            // å›æº¯
             Pop(st, e);
-            mg[e.i][e.j] = 0; // ÖØÖÃµ±Ç°Î»ÖÃ±ê¼ÇÎªÎ´·ÃÎÊ
+            mg[e.i][e.j] = 0; // é‡ç½®å½“å‰ä½ç½®æ ‡è®°ä¸ºæœªè®¿é—®
         }
     }
     DestroyStack(st);
