@@ -13,4 +13,5 @@
 #### 以下是文件夹内容的数据结构算法的简单介绍（文件夹内有详细的README.md）
 - linkList 链表
 - Stack 链栈
+- LinkQueue 链队
 - Sort 排序和搜索
