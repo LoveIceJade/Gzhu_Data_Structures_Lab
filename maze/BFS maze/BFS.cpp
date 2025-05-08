@@ -14,18 +14,18 @@ int mg[10][10] =
 { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 } ,
 };
 
-// ³õÊ¼»¯¶ÓÁĞ
+// åˆå§‹åŒ–é˜Ÿåˆ—
 void InitQueue(QuType*& qu) 
 {
     qu = new QuType;
     qu->front = qu->rear = 0;
 }
 
-// Èë¶Ó
+// å…¥é˜Ÿ
 bool enQueue(QuType*& qu, Box e) 
 {
     if ((qu->rear + 1) % MaxSize == qu->front)
-    {  // ¶ÓÁĞÂú
+    {  // é˜Ÿåˆ—æ»¡
         return false;
     }
     qu->data[qu->rear] = e;
@@ -33,11 +33,11 @@ bool enQueue(QuType*& qu, Box e)
     return true;
 }
 
-// ³ö¶Ó²Ù×÷
+// å‡ºé˜Ÿæ“ä½œ
 bool deQueue(QuType*& qu, Box& e)
 {
     if (qu->front == qu->rear) 
-    {  // ¶ÓÁĞ¿Õ
+    {  // é˜Ÿåˆ—ç©º
         return false;
     }
     e = qu->data[qu->front];
@@ -45,22 +45,22 @@ bool deQueue(QuType*& qu, Box& e)
     return true;
 }
 
-// ¼ì²é¶ÓÁĞÊÇ·ñÎª¿Õ
+// æ£€æŸ¥é˜Ÿåˆ—æ˜¯å¦ä¸ºç©º
 bool QueueEmpty(QuType* qu) 
 {
     return qu->front == qu->rear;
 }
 
-// Ïú»Ù¶ÓÁĞ
+// é”€æ¯é˜Ÿåˆ—
 void DestroyQueue(QuType*& qu)
 {
     if (qu != nullptr) {
         delete qu;
-        qu = nullptr;  // ·ÀÖ¹Ğü¹ÒÖ¸Õë
+        qu = nullptr;  // é˜²æ­¢æ‚¬æŒ‚æŒ‡é’ˆ
     }
 }
 
-// ¹ã¶ÈÓÅÏÈ±éÀú»ñÈ¡ÃÔ¹¬×î¶Ì³öÂ·
+// å¹¿åº¦ä¼˜å…ˆéå†è·å–è¿·å®«æœ€çŸ­å‡ºè·¯
 bool mepath(int xi, int yi, int xe, int ye)
 {
     Box e;
@@ -69,45 +69,45 @@ bool mepath(int xi, int yi, int xe, int ye)
     InitQueue(qu);
     e.i = xi; e.j = yi; e.pre = -1;
     enQueue(qu, e);
-    mg[xi][yi] = -1;  // ±ê¼ÇÆğµãÒÑ·ÃÎÊ
+    mg[xi][yi] = -1;  // æ ‡è®°èµ·ç‚¹å·²è®¿é—®
 
     while (!QueueEmpty(qu))
     {
         deQueue(qu, e);
         i = e.i; j = e.j;
 
-        if (i == xe && j == ye)  // ÕÒµ½ÖÕµã
+        if (i == xe && j == ye)  // æ‰¾åˆ°ç»ˆç‚¹
         {
-            dispapath(qu, e.pre);  // ÕıÈ·´«µİÖÕµãÇ°Ò»¸öÎ»ÖÃµÄË÷Òı
+            dispapath(qu, e.pre);  // æ­£ç¡®ä¼ é€’ç»ˆç‚¹å‰ä¸€ä¸ªä½ç½®çš„ç´¢å¼•
             DestroyQueue(qu);
             return true;
         }
 
-        for (di = 0; di < 4; di++)  // ¼ì²éËÄ¸ö·½Ïò
+        for (di = 0; di < 4; di++)  // æ£€æŸ¥å››ä¸ªæ–¹å‘
         {
             switch (di)
             {
-            case 0: il = i - 1; jl = j; break;    // ÉÏ
-            case 1: il = i; jl = j + 1; break;    // ÓÒ
-            case 2: il = i + 1; jl = j; break;    // ÏÂ
-            case 3: il = i; jl = j - 1; break;    // ×ó
+            case 0: il = i - 1; jl = j; break;    // ä¸Š
+            case 1: il = i; jl = j + 1; break;    // å³
+            case 2: il = i + 1; jl = j; break;    // ä¸‹
+            case 3: il = i; jl = j - 1; break;    // å·¦
             }
 
-            // È·±£ĞÂÎ»ÖÃÔÚÃÔ¹¬ÄÚÇÒÎ´·ÃÎÊ
+            // ç¡®ä¿æ–°ä½ç½®åœ¨è¿·å®«å†…ä¸”æœªè®¿é—®
             if (il >= 0 && il < MaxSize && jl >= 0 && jl < MaxSize && mg[il][jl] == 0)
             {
                 e.i = il; e.j = jl;
-                e.pre = qu->front - 1;  // µ±Ç°½ÚµãÔÚ¶ÓÁĞÖĞµÄË÷Òı
+                e.pre = qu->front - 1;  // å½“å‰èŠ‚ç‚¹åœ¨é˜Ÿåˆ—ä¸­çš„ç´¢å¼•
                 enQueue(qu, e);
-                mg[il][jl] = -1;  // ±ê¼ÇÒÑ·ÃÎÊ
+                mg[il][jl] = -1;  // æ ‡è®°å·²è®¿é—®
             }
         }
     }
 
-    DestroyQueue(qu);  // ÊÍ·Å¶ÓÁĞ
-    return false;  // Ã»ÓĞÕÒµ½Â·¾¶
+    DestroyQueue(qu);  // é‡Šæ”¾é˜Ÿåˆ—
+    return false;  // æ²¡æœ‰æ‰¾åˆ°è·¯å¾„
 }
-// ´Ó¶ÓÁĞ qu ÖĞÕÒµ½Ò»ÌõÃÔ¹¬Â·¾¶²¢Êä³ö
+// ä»é˜Ÿåˆ— qu ä¸­æ‰¾åˆ°ä¸€æ¡è¿·å®«è·¯å¾„å¹¶è¾“å‡º
 void dispapath(QuType* qu, int front)
 {
     Box path[MaxSize];
@@ -119,12 +119,12 @@ void dispapath(QuType* qu, int front)
         p = qu->data[p].pre;
     }
 
-    // ¿ÉÑ¡£ºÈç¹ûÂ·¾¶±»½Ø¶Ï£¬Ìí¼Ó¾¯¸æ
+    // å¯é€‰ï¼šå¦‚æœè·¯å¾„è¢«æˆªæ–­ï¼Œæ·»åŠ è­¦å‘Š
     if (p != -1) {
-        cout << "¾¯¸æ£ºÂ·¾¶Ì«³¤£¬Ö»ÏÔÊ¾Ç° " << MaxSize << " ²½¡£\n";
+        cout << "è­¦å‘Šï¼šè·¯å¾„å¤ªé•¿ï¼Œåªæ˜¾ç¤ºå‰ " << MaxSize << " æ­¥ã€‚\n";
     }
 
-    cout << "Ò»ÌõÃÔ¹¬Â·¾¶ÈçÏÂ:\n";
+    cout << "ä¸€æ¡è¿·å®«è·¯å¾„å¦‚ä¸‹:\n";
     for (i = k - 1; i >= 0; i--)
     {
         cout << "\t(" << path[i].i << "," << path[i].j << ")";
