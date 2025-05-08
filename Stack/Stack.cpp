@@ -1,44 +1,44 @@
 #include"Stack.h"
 
-//»ñµÃÒ»¸öËæ»úÈıÎ»ÕûÊı
+//è·å¾—ä¸€ä¸ªéšæœºä¸‰ä½æ•´æ•°
 int GetRand()
 {
 	return(rand() % 900 + 100);
 }
 
-//³õÊ¼»¯Õ»
+//åˆå§‹åŒ–æ ˆ
 void InitStack(StackLink*& s)
 {
 	s = new StackLink;
 	s->next = nullptr;
-	cout << "Õ»³õÊ¼»¯³É¹¦" << endl;
+	cout << "æ ˆåˆå§‹åŒ–æˆåŠŸ" << endl;
 }
 
-//½«Ò»¸öÔªËØ½øÕ»£¨Í·²å·¨£©
+//å°†ä¸€ä¸ªå…ƒç´ è¿›æ ˆï¼ˆå¤´æ’æ³•ï¼‰
 bool Push(StackLink*& s, DataType& e)
 {
 	StackLink* p = new StackLink;
 	p->data = e;
 	p->next = s->next;
 	s->next = p;
-	// µ÷ÊÔÊ±¿ÉÓÃ£¬×îÖÕ½á¹û¿ÉÒÔ×¢ÊÍµô
-	// cout << "ÈëÕ»³É¹¦" << endl;
+	// è°ƒè¯•æ—¶å¯ç”¨ï¼Œæœ€ç»ˆç»“æœå¯ä»¥æ³¨é‡Šæ‰
+	// cout << "å…¥æ ˆæˆåŠŸ" << endl;
 	return true;
 }
 
-//½«Ò»¸öÔªËØ½øÕ»£¨Í·²å·¨£©
+//å°†ä¸€ä¸ªå…ƒç´ è¿›æ ˆï¼ˆå¤´æ’æ³•ï¼‰
 bool Push(StackLink*& s, dataType &e)
 {
 	StackLink* p = new StackLink;
 	p->data = e;
 	p->next = s->next;
 	s->next = p;
-	// µ÷ÊÔÊ±¿ÉÓÃ£¬×îÖÕ½á¹û¿ÉÒÔ×¢ÊÍµô
-	// cout << "ÈëÕ»³É¹¦" << endl;
+	// è°ƒè¯•æ—¶å¯ç”¨ï¼Œæœ€ç»ˆç»“æœå¯ä»¥æ³¨é‡Šæ‰
+	// cout << "å…¥æ ˆæˆåŠŸ" << endl;
 	return true;
 }
 
-//½«Êı×é½øÕ»(Í·²å·¨)
+//å°†æ•°ç»„è¿›æ ˆ(å¤´æ’æ³•)
 bool PushArray(StackLink*& s, DataType e[], int n)
 {
 	for (int i = 0; i < n; i++)
@@ -48,17 +48,17 @@ bool PushArray(StackLink*& s, DataType e[], int n)
 		p->next = s->next;
 		s->next = p;
 	}
-	cout<<"Êı¾İÈ«²¿ÈëÕ»³É¹¦" << endl;
+	cout<<"æ•°æ®å…¨éƒ¨å…¥æ ˆæˆåŠŸ" << endl;
 	return true;
 }
 
-//³öÕ»
+//å‡ºæ ˆ
 bool Pop(StackLink*& s, DataType& e)
 {
 	if (s->next == nullptr || s == nullptr)
 	{ 
-		// µ÷ÊÔÊ±¿ÉÓÃ£¬×îÖÕ½á¹û¿ÉÒÔ×¢ÊÍµô
-		// cout << "³öÕ»Ê§°Ü£¬¸ÃÕ»Îª¿ÕÕ»" << endl;  
+		// è°ƒè¯•æ—¶å¯ç”¨ï¼Œæœ€ç»ˆç»“æœå¯ä»¥æ³¨é‡Šæ‰
+		// cout << "å‡ºæ ˆå¤±è´¥ï¼Œè¯¥æ ˆä¸ºç©ºæ ˆ" << endl;  
 		return false; 
 	}
 	StackLink* p;
@@ -69,12 +69,12 @@ bool Pop(StackLink*& s, DataType& e)
 	return true;
 }
 
-//³öÕ»
+//å‡ºæ ˆ
 bool Pop(StackLink*& s, dataType& e)
 {
 	if (s->next == nullptr || s == nullptr)
 	{
-		cout << "³öÕ»Ê§°Ü£¬¸ÃÕ»Îª¿ÕÕ»" << endl;
+		cout << "å‡ºæ ˆå¤±è´¥ï¼Œè¯¥æ ˆä¸ºç©ºæ ˆ" << endl;
 		return false;
 	}
 	StackLink* p;
@@ -85,13 +85,13 @@ bool Pop(StackLink*& s, dataType& e)
 	return true;
 }
 
-//ÅĞ¶ÏÕ»ÊÇ·ñÎª¿Õ
+//åˆ¤æ–­æ ˆæ˜¯å¦ä¸ºç©º
 bool StackEmpty(StackLink*& s)
 {
 	return(s->next == nullptr);
 }
 
-//ÅĞ¶ÏÀ¨ºÅÊÇ·ñºÏ·¨
+//åˆ¤æ–­æ‹¬å·æ˜¯å¦åˆæ³•
 void Parenlegal(string input)
 {
 	StackLink* p;
@@ -100,26 +100,26 @@ void Parenlegal(string input)
 
 	for (char ch : input)
 	{
-		//Ö»½øÕ»×óÀ¨ºÅ£¬Óöµ½ÓÒÀ¨ºÅ³öÕ»Ò»¸ö×óÀ¨ºÅ£¬ºöÂÔÆäËû×Ö·û
+		//åªè¿›æ ˆå·¦æ‹¬å·ï¼Œé‡åˆ°å³æ‹¬å·å‡ºæ ˆä¸€ä¸ªå·¦æ‹¬å·ï¼Œå¿½ç•¥å…¶ä»–å­—ç¬¦
 		if (ch == '(')
 			Push(p, ch);
 		else if (ch == ')')
 		{
-			if (StackEmpty(p)) //Õ»ÄÚÎª¿Õ£¬ÎŞ·¨³öÕ»£¬ÊäÈë×Ö·ûÔ²À¨ºÅ·Ç·¨
+			if (StackEmpty(p)) //æ ˆå†…ä¸ºç©ºï¼Œæ— æ³•å‡ºæ ˆï¼Œè¾“å…¥å­—ç¬¦åœ†æ‹¬å·éæ³•
 			{
-				cout << "Ô²À¨ºÅ·Ç·¨£¬ÓÒÀ¨ºÅ¹ı¶à" << endl;
+				cout << "åœ†æ‹¬å·éæ³•ï¼Œå³æ‹¬å·è¿‡å¤š" << endl;
 				return;
 			}
 			Pop(p, e);
 		}
 	}
 
-	if (!StackEmpty(p))  //Èç¹û×îºóÕ»·Ç¿Õ£¬Ôò×óÀ¨ºÅ¹ı¶à
+	if (!StackEmpty(p))  //å¦‚æœæœ€åæ ˆéç©ºï¼Œåˆ™å·¦æ‹¬å·è¿‡å¤š
 	{
-		cout << "Ô²À¨ºÅ·Ç·¨£¬×óÀ¨ºÅ¹ı¶à" << endl;
+		cout << "åœ†æ‹¬å·éæ³•ï¼Œå·¦æ‹¬å·è¿‡å¤š" << endl;
 		return;
 	}
-	cout << "Ô²À¨ºÅºÏ·¨" << endl;
+	cout << "åœ†æ‹¬å·åˆæ³•" << endl;
 
-	delete p;  //ÊÍ·ÅpµÄÄÚ´æ
+	delete p;  //é‡Šæ”¾pçš„å†…å­˜
 }
