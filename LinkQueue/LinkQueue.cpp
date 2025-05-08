@@ -1,55 +1,55 @@
 #include"LinkQueue.h"
 
-//»ñµÃÒ»¸öËæ»úÈıÎ»ÕûÊı
+//è·å¾—ä¸€ä¸ªéšæœºä¸‰ä½æ•´æ•°
 int GetRand()
 {
 	return(rand() % 900 + 100);
 }
 
-//³õÊ¼»¯´øÍ·½áµãµÄÁ´¶ÓÁĞ
+//åˆå§‹åŒ–å¸¦å¤´ç»“ç‚¹çš„é“¾é˜Ÿåˆ—
 void InitQueue(LinkQueue*& Q)
 {
 	Q = new LinkQueue;
 	Q->front = Q->rear = nullptr;
-	cout << "Á´¶Ó³õÊ¼»¯³É¹¦" << endl;
+	cout << "é“¾é˜Ÿåˆå§‹åŒ–æˆåŠŸ" << endl;
 }
 
-//ÅĞÁ´¶ÓÁĞ¿Õ
+//åˆ¤é“¾é˜Ÿåˆ—ç©º
 bool QueueEmpty(LinkQueue* Q)
 {
 	if (Q->rear == nullptr)
 	{
-		cout << "Á´¶ÓÎª¿Õ" << endl;
+		cout << "é“¾é˜Ÿä¸ºç©º" << endl;
 		return true;
 	}
-	cout << "Á´¶Ó·Ç¿Õ" << endl;
+	cout << "é“¾é˜Ÿéç©º" << endl;
 	return(false);
 }
 
-//Èë¶Ó
+//å…¥é˜Ÿ
 int EnQueue(LinkQueue*& Q, DataType &item)
 {
-	QNode* p = new QNode;  //´´½¨ĞÂ½áµã
+	QNode* p = new QNode;  //åˆ›å»ºæ–°ç»“ç‚¹
 	p->data = item;
 	p->next = nullptr;
-	if (Q->rear == nullptr)  //Èô¶ÓÁĞÎª¿Õ£¬ÔòĞÂ½áµã¼ÈÊÇÊ×½áµãÓÖÊÇÎ²½áµã
+	if (Q->rear == nullptr)  //è‹¥é˜Ÿåˆ—ä¸ºç©ºï¼Œåˆ™æ–°ç»“ç‚¹æ—¢æ˜¯é¦–ç»“ç‚¹åˆæ˜¯å°¾ç»“ç‚¹
 		Q->front = Q->rear = p;
 	else
 	{
 		Q->rear->next = p;
 		Q->rear = p;
 	}
-	cout << "Êı¾İ  " << item << "  ÒÑ¾­Èë¶Ó³É¹¦" << endl;
+	cout << "æ•°æ®  " << item << "  å·²ç»å…¥é˜ŸæˆåŠŸ" << endl;
 	return 1;
 }
 
-//³ö¶Ó
+//å‡ºé˜Ÿ
 int DeQueue(LinkQueue*& Q, DataType& item)
 {
 	if (Q->rear == nullptr)
 	{
-		// µ÷ÊÔÊ±¿ÉÈ¡Ïû×¢ÊÍ
-		// cout << "¶ÓÁĞÎª¿Õ£¬³ö¶ÓÊ§°Ü" << endl;
+		// è°ƒè¯•æ—¶å¯å–æ¶ˆæ³¨é‡Š
+		// cout << "é˜Ÿåˆ—ä¸ºç©ºï¼Œå‡ºé˜Ÿå¤±è´¥" << endl;
 		return 0;
 	}
 	QNode* t = Q->front;
@@ -59,37 +59,37 @@ int DeQueue(LinkQueue*& Q, DataType& item)
 		Q->front = Q->front->next;
 	item = t->data;
 	delete t;
-	cout << "³ö¶Ó³É¹¦£¬ÒÑ³ö¶ÓµÄÊı¾İÎª" << item << endl;
+	cout << "å‡ºé˜ŸæˆåŠŸï¼Œå·²å‡ºé˜Ÿçš„æ•°æ®ä¸º" << item << endl;
 	return 1;
 }
 
 
-//±éÀú¶ÓÁĞ
+//éå†é˜Ÿåˆ—
 int TraverseQueue(LinkQueue* Q)
 {
 	QNode* p = Q->front;
 	if (p == nullptr)
 	{
-		cout << "¸Ã¶ÓÁĞÎª¿Õ" << endl;
+		cout << "è¯¥é˜Ÿåˆ—ä¸ºç©º" << endl;
 		return 0;
 	}
 	int i = 1;
 	while (p!=nullptr)
 	{
-		cout << "¶ÓÁĞµÄµÚ" << i << "¸öÊı¾İÎª" << p->data << endl;
+		cout << "é˜Ÿåˆ—çš„ç¬¬" << i << "ä¸ªæ•°æ®ä¸º" << p->data << endl;
 		p = p->next;
 		i++;
 	}
-	cout << "¸Ã¶ÓÁĞÒÑ±éÀúÍê³É" << endl;
+	cout << "è¯¥é˜Ÿåˆ—å·²éå†å®Œæˆ" << endl;
 	return 1;
 }
 
-//·­×ª¶ÓÁĞ
+//ç¿»è½¬é˜Ÿåˆ—
 void RervseQueue(LinkQueue*& Q)
 {
 	if (Q->front == nullptr || Q->front->next == nullptr)
 	{
-		cout << "¸Ã¶ÓÁĞÎª¿Õ»òÖ»ÓĞÒ»¸öÔªËØ£¬ÎŞĞè·­×ª" << endl;
+		cout << "è¯¥é˜Ÿåˆ—ä¸ºç©ºæˆ–åªæœ‰ä¸€ä¸ªå…ƒç´ ï¼Œæ— éœ€ç¿»è½¬" << endl;
 		return;
 	}
 
@@ -97,7 +97,7 @@ void RervseQueue(LinkQueue*& Q)
 	QNode* current = Q->front;
 	QNode* next = nullptr;
 
-	// Öğ¸ö·´×ª½ÚµãµÄÖ¸Ïò
+	// é€ä¸ªåè½¬èŠ‚ç‚¹çš„æŒ‡å‘
 	while (current != nullptr) {
 		next = current->next;
 		current->next = prev;
@@ -105,9 +105,9 @@ void RervseQueue(LinkQueue*& Q)
 		current = next;
 	}
 
-	// ½»»» front ºÍ rear
+	// äº¤æ¢ front å’Œ rear
 	Q->rear = Q->front;
 	Q->front = prev;
 
-	cout << "¶ÓÁĞ·­×ªÍê³É£¡" << endl;
+	cout << "é˜Ÿåˆ—ç¿»è½¬å®Œæˆï¼" << endl;
 }
