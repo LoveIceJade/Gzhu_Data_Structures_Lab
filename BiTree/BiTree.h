@@ -6,86 +6,86 @@ const int MaxSize = 9999999;
 
 struct BTNode
 {
-	DataType    data;    //Êý¾ÝÓò	
+	DataType    data;    //æ•°æ®åŸŸ	
 	struct BTNode* lchild;
-	struct BTNode* rchild; //½áµãµÄ×óÓÒ×ÓÊ÷Ö¸Õë	
-};//¶þ²æÊ÷½áµãÀàÐÍ
+	struct BTNode* rchild; //ç»“ç‚¹çš„å·¦å³å­æ ‘æŒ‡é’ˆ	
+};//äºŒå‰æ ‘ç»“ç‚¹ç±»åž‹
 
-//³õÊ¼»¯¿Õ¶þ²æÊ÷
+//åˆå§‹åŒ–ç©ºäºŒå‰æ ‘
 void TreeInit(BTNode*& root);
 
-//°´ÕÕÇ°Ðò±éÀúÐòÁÐ½¨Á¢¶þ²æÊ÷
+//æŒ‰ç…§å‰åºéåŽ†åºåˆ—å»ºç«‹äºŒå‰æ ‘
 void CreateBTree_Pre(BTNode*& b, DataType* str);
 
-//ÊÍ·Å¶þ²æÊ÷ÖÐËùÓÐ½áµã
+//é‡Šæ”¾äºŒå‰æ ‘ä¸­æ‰€æœ‰ç»“ç‚¹
 void ClearBTree(BTNode*& root);
 
-//¼ÆËã¶þ²æÊ÷Ò¶×Ó½áµã¸öÊý
+//è®¡ç®—äºŒå‰æ ‘å¶å­ç»“ç‚¹ä¸ªæ•°
 int LeafCount(BTNode* root);
 
-//¼ÆËã¶þ²æÊ÷½áµã¸öÊý
+//è®¡ç®—äºŒå‰æ ‘ç»“ç‚¹ä¸ªæ•°
 int DegreeCount(BTNode* root);
 
 
-//¼ÆËã¶þ²æÊ÷¸ß¶È
+//è®¡ç®—äºŒå‰æ ‘é«˜åº¦
 int BTreeDepth(BTNode* root);
 
-//Êä³ö¶þ²æÊ÷
+//è¾“å‡ºäºŒå‰æ ‘
 void DispBtree(BTNode* root);
 
-//ÇóÌØ¶¨½áµã
+//æ±‚ç‰¹å®šç»“ç‚¹
 BTNode* FindNote(BTNode* root, DataType x);
 
-//ÇóÌØ¶¨½áµãº¢×Ó¶ÈÊý
+//æ±‚ç‰¹å®šç»“ç‚¹å­©å­åº¦æ•°
 int BTreeChildNum(BTNode* root, DataType x);
 
-//Çó¶þ²æÊ÷µÄ¶È
+//æ±‚äºŒå‰æ ‘çš„åº¦
 int CountDegree(BTNode* root);
 
-//ÏÂÃæÊÇµÝ¹éËã·¨½øÐÐ±éÀú
-//Ç°Ðò±éÀú¶þ²æÊ÷
+//ä¸‹é¢æ˜¯é€’å½’ç®—æ³•è¿›è¡ŒéåŽ†
+//å‰åºéåŽ†äºŒå‰æ ‘
 void PreOrder_01(BTNode* root);
 
-//ÖÐÐò±éÀú¶þ²æÊ÷
+//ä¸­åºéåŽ†äºŒå‰æ ‘
 void InOrder_01(BTNode* root);
 
-//ºóÐò±éÀú¶þ²æÊ÷
+//åŽåºéåŽ†äºŒå‰æ ‘
 void PostOrder_01(BTNode* root);
 
-//ÏÂÃæÊÇ·ÇµÝ¹éËã·¨½øÐÐ±éÀú
-//Ç°Ðò±éÀú¶þ²æÊ÷
+//ä¸‹é¢æ˜¯éžé€’å½’ç®—æ³•è¿›è¡ŒéåŽ†
+//å‰åºéåŽ†äºŒå‰æ ‘
 void PreOrder_02(BTNode* root);
 
-//ÖÐÐò±éÀú¶þ²æÊ÷
+//ä¸­åºéåŽ†äºŒå‰æ ‘
 void InOrder_02(BTNode* root);
 
-//ºóÐò±éÀú¶þ²æÊ÷
+//åŽåºéåŽ†äºŒå‰æ ‘
 void PostOrder_02(BTNode* root);
 
 
 
 
-//ÏÂÃæÊÇÊµÏÖÕ»Ïà¹ØµÄÄÚÈÝ
-struct StackLink     //Á´Õ»½ÚµãÉùÃ÷
+//ä¸‹é¢æ˜¯å®žçŽ°æ ˆç›¸å…³çš„å†…å®¹
+struct StackLink     //é“¾æ ˆèŠ‚ç‚¹å£°æ˜Ž
 {
 	BTNode* data;
 	StackLink* next;
 };
 
-//³õÊ¼»¯Õ»
+//åˆå§‹åŒ–æ ˆ
 void InitStack(StackLink*& s);
 
-//½«Ò»¸öÔªËØ½øÕ»£¨Í·²å·¨£©
+//å°†ä¸€ä¸ªå…ƒç´ è¿›æ ˆï¼ˆå¤´æ’æ³•ï¼‰
 bool Push(StackLink*& s, BTNode*& e);
 
-//È¡Õ»¶¥µÚÒ»¸öÔªËØ
+//å–æ ˆé¡¶ç¬¬ä¸€ä¸ªå…ƒç´ 
 bool GetTop(StackLink* s, BTNode*& e);
 
-//ÅÐ¶ÏÕ»ÊÇ·ñÎª¿Õ
+//åˆ¤æ–­æ ˆæ˜¯å¦ä¸ºç©º
 bool StackEmpty(StackLink*& s);
 
-//³öÕ»
+//å‡ºæ ˆ
 bool Pop(StackLink*& s, BTNode*& e);
 
-//Ïú»ÙÕ»
+//é”€æ¯æ ˆ
 void DestroyStack(StackLink*& s);
