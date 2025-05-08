@@ -1,48 +1,48 @@
 #include "BiTree.h"
 
-//³õÊ¼»¯¿Õ¶ş²æÊ÷
+//åˆå§‹åŒ–ç©ºäºŒå‰æ ‘
 void TreeInit(BTNode*& root)
 {
 	root = nullptr;
 }
 
-//°´ÕÕÇ°Ğò±éÀúĞòÁĞ½¨Á¢¶ş²æÊ÷
+//æŒ‰ç…§å‰åºéå†åºåˆ—å»ºç«‹äºŒå‰æ ‘
 void CreateBTree_Pre(BTNode*& b, DataType *str)
 {
-	BTNode* St[100], * p;  //StÊı×éÎªÁ´Õ»
+	BTNode* St[100], * p;  //Stæ•°ç»„ä¸ºé“¾æ ˆ
 	p = new BTNode;     
-	int top = -1, k = 0, j = 0;  //topÎªÕ»¶¥Ö¸Õë
+	int top = -1, k = 0, j = 0;  //topä¸ºæ ˆé¡¶æŒ‡é’ˆ
 	char ch;
-	TreeInit(b);     //³õÊ¼»¯bÎª¿Õ
+	TreeInit(b);     //åˆå§‹åŒ–bä¸ºç©º
 	ch = str[j];
-	while (ch != '\0')  //±éÀústrµÄËùÓĞ×Ö·û
+	while (ch != '\0')  //éå†strçš„æ‰€æœ‰å­—ç¬¦
 	{
 		switch (ch)
 		{
-		case'(':top++; St[top] = p; k = 1; break;  //´¦Àí×óº¢×Ó½áµã
-		case')':top--; break;   //Õ»¶¥Ö¸Õë×ÓÊ÷´¦Àí
-		case',':k = 2; break;   //´¦ÀíÓÒº¢×Ó½áµã
+		case'(':top++; St[top] = p; k = 1; break;  //å¤„ç†å·¦å­©å­ç»“ç‚¹
+		case')':top--; break;   //æ ˆé¡¶æŒ‡é’ˆå­æ ‘å¤„ç†
+		case',':k = 2; break;   //å¤„ç†å³å­©å­ç»“ç‚¹
 		default:
-			p = new BTNode;  //´´½¨Ò»¸öĞÂ½áµã£¬pÖ¸ÏòÆä
-			p->data = ch;  //´æ·Å½áµãÊı¾İ
-			p->lchild = p->rchild = nullptr;  //½«×óÓÒÖ¸ÕëÉè¶¨Îª¿Õ
-			if (b == nullptr)  //ÈôÉĞÎ´¸ù½Úµã
-				b = p;        //p¼´Îª¸ù½Úµã
-			else  //ÒÑ½¨Á¢¸ù½Úµã
+			p = new BTNode;  //åˆ›å»ºä¸€ä¸ªæ–°ç»“ç‚¹ï¼ŒpæŒ‡å‘å…¶
+			p->data = ch;  //å­˜æ”¾ç»“ç‚¹æ•°æ®
+			p->lchild = p->rchild = nullptr;  //å°†å·¦å³æŒ‡é’ˆè®¾å®šä¸ºç©º
+			if (b == nullptr)  //è‹¥å°šæœªæ ¹èŠ‚ç‚¹
+				b = p;        //på³ä¸ºæ ¹èŠ‚ç‚¹
+			else  //å·²å»ºç«‹æ ¹èŠ‚ç‚¹
 			{
 				switch (k)
 				{
-				case 1:St[top]->lchild = p; break;  //ÎªÕ»¶¥Ö¸Õë×óº¢×Ó
-				case 2:St[top]->rchild = p; break;  //ÎªÕ»¶¥Ö¸ÕëÓÒº¢×Ó
+				case 1:St[top]->lchild = p; break;  //ä¸ºæ ˆé¡¶æŒ‡é’ˆå·¦å­©å­
+				case 2:St[top]->rchild = p; break;  //ä¸ºæ ˆé¡¶æŒ‡é’ˆå³å­©å­
 				}
 			}
 		}
-		j++;  //¼ÌĞø±éÀústr
+		j++;  //ç»§ç»­éå†str
 		ch = str[j];
 	}
 }
 
-//ÊÍ·Å¶ş²æÊ÷ÖĞËùÓĞ½áµã
+//é‡Šæ”¾äºŒå‰æ ‘ä¸­æ‰€æœ‰ç»“ç‚¹
 void ClearBTree(BTNode*& root)
 {
 	if (root != nullptr)
@@ -53,10 +53,10 @@ void ClearBTree(BTNode*& root)
 	}
 }
 
-//¼ÆËã¶ş²æÊ÷Ë«·ÖÖ§½áµã¸öÊı
+//è®¡ç®—äºŒå‰æ ‘åŒåˆ†æ”¯ç»“ç‚¹ä¸ªæ•°
 int TwoDegreeCount(BTNode* root)
 {
-	if (root == nullptr)  //¿ÕÊ÷Ö±½Ó·µ»Ø0
+	if (root == nullptr)  //ç©ºæ ‘ç›´æ¥è¿”å›0
 		return 0;
 
 	if (root->lchild != nullptr && root->rchild != nullptr)
@@ -65,90 +65,90 @@ int TwoDegreeCount(BTNode* root)
 	return(TwoDegreeCount(root->lchild) + TwoDegreeCount(root->rchild));
 }
 
-//¼ÆËã¶ş²æÊ÷¸ß¶È
+//è®¡ç®—äºŒå‰æ ‘é«˜åº¦
 int BTreeDepth(BTNode* root)
 {
-	if (root == nullptr)  //¿ÕÊ÷¸ß¶ÈÎª0
+	if (root == nullptr)  //ç©ºæ ‘é«˜åº¦ä¸º0
 		return 0;
 	int lchildp, rchildp;
-	lchildp = BTreeDepth(root->lchild);  //Çó×ó×ÓÊ÷¸ß¶È
-	rchildp = BTreeDepth(root->rchild);  //ÇóÓÒ×ÓÊ÷¸ß¶È
-	return (lchildp > rchildp) ? (lchildp + 1) : (rchildp + 1);  //±È½Ï×óÓÒ×ÓÊ÷¸ß¶Èºó£¬È¡½Ï´óÖµ+1£¨¸ù½Úµã¸ß¶È£©
+	lchildp = BTreeDepth(root->lchild);  //æ±‚å·¦å­æ ‘é«˜åº¦
+	rchildp = BTreeDepth(root->rchild);  //æ±‚å³å­æ ‘é«˜åº¦
+	return (lchildp > rchildp) ? (lchildp + 1) : (rchildp + 1);  //æ¯”è¾ƒå·¦å³å­æ ‘é«˜åº¦åï¼Œå–è¾ƒå¤§å€¼+1ï¼ˆæ ¹èŠ‚ç‚¹é«˜åº¦ï¼‰
 }
 
-//Êä³ö¶ş²æÊ÷
+//è¾“å‡ºäºŒå‰æ ‘
 void DispBtree(BTNode* root)
 {
-	if (root != nullptr)  //·Ç¿ÕÊ÷ÔòÊä³ö
+	if (root != nullptr)  //éç©ºæ ‘åˆ™è¾“å‡º
 	{
-		cout << root->data;  //Êä³ö¸ù½Úµã
+		cout << root->data;  //è¾“å‡ºæ ¹èŠ‚ç‚¹
 		if (root->lchild != nullptr || root->rchild != nullptr)
 		{
-			cout << "(";  //ÓĞº¢×Ó½áµãÊ±ÔÙÊä³ö"("
-			DispBtree(root->lchild);  //µİ¹é×ó×ÓÊ÷
-			if (root->rchild != nullptr)  //ÓĞÓÒº¢×Ó½áµãÊ±²ÅÊä³ö","
+			cout << "(";  //æœ‰å­©å­ç»“ç‚¹æ—¶å†è¾“å‡º"("
+			DispBtree(root->lchild);  //é€’å½’å·¦å­æ ‘
+			if (root->rchild != nullptr)  //æœ‰å³å­©å­ç»“ç‚¹æ—¶æ‰è¾“å‡º","
 				cout << ",";  
-			DispBtree(root->rchild);  //µİ¹éÓÒ×ÓÊ÷
-			cout << ")";  //ÓĞº¢×Ó½áµãÊ±²ÅÊä³ö")"
+			DispBtree(root->rchild);  //é€’å½’å³å­æ ‘
+			cout << ")";  //æœ‰å­©å­ç»“ç‚¹æ—¶æ‰è¾“å‡º")"
 		}
 	}
 }
 
-//¼ÆËã¶ş²æÊ÷Ò¶×Ó½áµã¸öÊı
+//è®¡ç®—äºŒå‰æ ‘å¶å­ç»“ç‚¹ä¸ªæ•°
 int LeafCount(BTNode* root)
 {
-	if (root == nullptr)  //¿ÕÊ÷£¬Ôò·µ»Ø0
+	if (root == nullptr)  //ç©ºæ ‘ï¼Œåˆ™è¿”å›0
 		return 0;
-	if (root->lchild == nullptr && root->rchild == nullptr)  //ÈôÎªÒ¶×Ó½áµã£¬Ôò·µ»Ø1
+	if (root->lchild == nullptr && root->rchild == nullptr)  //è‹¥ä¸ºå¶å­ç»“ç‚¹ï¼Œåˆ™è¿”å›1
 		return 1;
 
-	return LeafCount(root->lchild) + LeafCount(root->rchild);  //½á¹û·µ»ØÓÒ×ÓÊ÷ºÍ×ó×ÓÊ÷µÄÒ¶×Ó½áµãÖ®ºÍ
+	return LeafCount(root->lchild) + LeafCount(root->rchild);  //ç»“æœè¿”å›å³å­æ ‘å’Œå·¦å­æ ‘çš„å¶å­ç»“ç‚¹ä¹‹å’Œ
 }
 
-//¼ÆËã¶ş²æÊ÷½áµã¸öÊı
+//è®¡ç®—äºŒå‰æ ‘ç»“ç‚¹ä¸ªæ•°
 int DegreeCount(BTNode* root)
 {
-	if (root == nullptr)  //¿ÕÊ÷£¬Ôò·µ»Ø0
+	if (root == nullptr)  //ç©ºæ ‘ï¼Œåˆ™è¿”å›0
 		return 0;
 
-	return DegreeCount(root->lchild) + DegreeCount(root->rchild) + 1;  //½á¹û·µ»Ø×ó×ÓÊ÷ºÍÓÒ×ÓÊ÷½áµãÖ®ÒÔ¼°¼Ó±¾½áµã
+	return DegreeCount(root->lchild) + DegreeCount(root->rchild) + 1;  //ç»“æœè¿”å›å·¦å­æ ‘å’Œå³å­æ ‘ç»“ç‚¹ä¹‹ä»¥åŠåŠ æœ¬ç»“ç‚¹
 }
 
-//ÇóÌØ¶¨½áµã
+//æ±‚ç‰¹å®šç»“ç‚¹
 BTNode *FindNote(BTNode* root, DataType x)
 {
 	BTNode* p;
-	if (root == nullptr)  //¿ÕÊ÷ÔòÖ±½Ó·µ»Ø
+	if (root == nullptr)  //ç©ºæ ‘åˆ™ç›´æ¥è¿”å›
 		return nullptr;
-	else if (root->data == x)  //ÕÒµ½Ôò·µ»ØÄ¿±ê½áµã
+	else if (root->data == x)  //æ‰¾åˆ°åˆ™è¿”å›ç›®æ ‡ç»“ç‚¹
 		return root;
 	else
 	{
-		p = FindNote(root->lchild, x);  //±éÀú×ó×ÓÊ÷
-		if (p != nullptr)  //ÔÚ×ó×ÓÊ÷ÖĞÕÒµ½ÁË
+		p = FindNote(root->lchild, x);  //éå†å·¦å­æ ‘
+		if (p != nullptr)  //åœ¨å·¦å­æ ‘ä¸­æ‰¾åˆ°äº†
 			return p;  
 		else
-			return FindNote(root->rchild, x);  //±éÀúÓÒ×ÓÊ÷
+			return FindNote(root->rchild, x);  //éå†å³å­æ ‘
 	}
 }
 
 
-//ÇóÌØ¶¨½áµãº¢×Ó¶ÈÊı
+//æ±‚ç‰¹å®šç»“ç‚¹å­©å­åº¦æ•°
 int BTreeChildNum(BTNode* root, DataType x)
 {
 	BTNode* p = FindNote(root, x);
-	if (p == nullptr)  //ÕÒ²»µ½Ä¿±ê½Úµã£¬·µ»Ø-1
+	if (p == nullptr)  //æ‰¾ä¸åˆ°ç›®æ ‡èŠ‚ç‚¹ï¼Œè¿”å›-1
 		return -1;
 
 	int count = 0;
-	if (root->lchild != nullptr)  //º¢×Ó×ó×ÓÊ÷´æÔÚ
+	if (root->lchild != nullptr)  //å­©å­å·¦å­æ ‘å­˜åœ¨
 	{
 		if (root->lchild->lchild != nullptr)
 			count++;
 		if (root->lchild->rchild != nullptr)
 			count++;
 	}
-	if (root->rchild != nullptr)  //º¢×ÓÓÒ×ÓÊ÷´æÔÚ
+	if (root->rchild != nullptr)  //å­©å­å³å­æ ‘å­˜åœ¨
 	{
 		if (root->rchild->lchild != nullptr)
 			count++;
@@ -158,35 +158,35 @@ int BTreeChildNum(BTNode* root, DataType x)
 	return count;
 }
 
-//Çó¶ş²æÊ÷µÄ¶È
+//æ±‚äºŒå‰æ ‘çš„åº¦
 int CountDegree(BTNode* root)
 {
 	if (root == nullptr)
 	{
-		return 0;  // ¿ÕÊ÷Ã»ÓĞ¶È
+		return 0;  // ç©ºæ ‘æ²¡æœ‰åº¦
 	}
 
-	int degree = 0;  // µ±Ç°½ÚµãµÄ¶ÈÊı
+	int degree = 0;  // å½“å‰èŠ‚ç‚¹çš„åº¦æ•°
 
-	// ÅĞ¶Ïµ±Ç°½ÚµãÊÇ·ñÓĞ×ó×ÓÊ÷
+	// åˆ¤æ–­å½“å‰èŠ‚ç‚¹æ˜¯å¦æœ‰å·¦å­æ ‘
 	if (root->lchild != nullptr)
 	{
-		degree++;  // ÓĞ×ó×ÓÊ÷£¬¶ÈÊı+1
+		degree++;  // æœ‰å·¦å­æ ‘ï¼Œåº¦æ•°+1
 	}
 
-	// ÅĞ¶Ïµ±Ç°½ÚµãÊÇ·ñÓĞÓÒ×ÓÊ÷
+	// åˆ¤æ–­å½“å‰èŠ‚ç‚¹æ˜¯å¦æœ‰å³å­æ ‘
 	if (root->rchild != nullptr) 
 	{
-		degree++;  // ÓĞÓÒ×ÓÊ÷£¬¶ÈÊı+1
+		degree++;  // æœ‰å³å­æ ‘ï¼Œåº¦æ•°+1
 	}
 
-	// µİ¹é¼ÆËã×ó×ÓÊ÷ºÍÓÒ×ÓÊ÷µÄ¶ÈÊı£¬²¢ÀÛ¼Ó
+	// é€’å½’è®¡ç®—å·¦å­æ ‘å’Œå³å­æ ‘çš„åº¦æ•°ï¼Œå¹¶ç´¯åŠ 
 	return degree + CountDegree(root->lchild) + CountDegree(root->rchild);
 }
 
 
-//ÏÂÃæÊÇµİ¹éËã·¨½øĞĞ±éÀú
-//Ç°Ğò±éÀú¶ş²æÊ÷
+//ä¸‹é¢æ˜¯é€’å½’ç®—æ³•è¿›è¡Œéå†
+//å‰åºéå†äºŒå‰æ ‘
 void PreOrder_01(BTNode* root)
 {
 	if (root != nullptr)
@@ -197,7 +197,7 @@ void PreOrder_01(BTNode* root)
 	}
 }
 
-//ÖĞĞò±éÀú¶ş²æÊ÷
+//ä¸­åºéå†äºŒå‰æ ‘
 void InOrder_01(BTNode* root)
 {
 	if (root != nullptr)
@@ -208,7 +208,7 @@ void InOrder_01(BTNode* root)
 	}
 }
 
-//ºóĞò±éÀú¶ş²æÊ÷
+//ååºéå†äºŒå‰æ ‘
 void PostOrder_01(BTNode* root)
 {
 	if (root != nullptr)
@@ -219,8 +219,8 @@ void PostOrder_01(BTNode* root)
 	}
 }
 
-//ÏÂÃæÊÇ·Çµİ¹éËã·¨½øĞĞ±éÀú
-//Ç°Ğò±éÀú¶ş²æÊ÷
+//ä¸‹é¢æ˜¯éé€’å½’ç®—æ³•è¿›è¡Œéå†
+//å‰åºéå†äºŒå‰æ ‘
 void PreOrder_02(BTNode* root)
 {
 	BTNode* p = root;
@@ -244,7 +244,7 @@ void PreOrder_02(BTNode* root)
 	DestroyStack(st);
 }
 
-//ÖĞĞò±éÀú¶ş²æÊ÷
+//ä¸­åºéå†äºŒå‰æ ‘
 void InOrder_02(BTNode* root)
 {
 	BTNode* p = root;
@@ -268,7 +268,7 @@ void InOrder_02(BTNode* root)
 	DestroyStack(st);
 }
 
-//ºóĞò±éÀú¶ş²æÊ÷
+//ååºéå†äºŒå‰æ ‘
 void PostOrder_02(BTNode* root)
 {
 	BTNode* p = root, * r;
@@ -305,15 +305,15 @@ void PostOrder_02(BTNode* root)
 }
 
 
-//ÏÂÃæÊÇÊµÏÖÕ»µÄ¹¦ÄÜµÄÄÚÈİ
-//³õÊ¼»¯Õ»
+//ä¸‹é¢æ˜¯å®ç°æ ˆçš„åŠŸèƒ½çš„å†…å®¹
+//åˆå§‹åŒ–æ ˆ
 void InitStack(StackLink*& s)
 {
 	s = new StackLink;
 	s->next = nullptr;
 }
 
-//½«Ò»¸öÔªËØ½øÕ»£¨Í·²å·¨£©
+//å°†ä¸€ä¸ªå…ƒç´ è¿›æ ˆï¼ˆå¤´æ’æ³•ï¼‰
 bool Push(StackLink*& s, BTNode*& e)
 {
 	StackLink* p = new StackLink;
@@ -322,7 +322,7 @@ bool Push(StackLink*& s, BTNode*& e)
 	s->next = p;
 	return true;
 }
-//È¡Õ»¶¥µÚÒ»¸öÔªËØ
+//å–æ ˆé¡¶ç¬¬ä¸€ä¸ªå…ƒç´ 
 bool GetTop(StackLink* s, BTNode*& e)
 {
 	if (s->next == nullptr)
@@ -331,7 +331,7 @@ bool GetTop(StackLink* s, BTNode*& e)
 	return true;
 }
 
-//³öÕ»
+//å‡ºæ ˆ
 bool Pop(StackLink*& s, BTNode*& e)
 {
 	if (s->next == nullptr)
@@ -344,13 +344,13 @@ bool Pop(StackLink*& s, BTNode*& e)
 	return true;
 }
 
-//ÅĞ¶ÏÕ»ÊÇ·ñÎª¿Õ
+//åˆ¤æ–­æ ˆæ˜¯å¦ä¸ºç©º
 bool StackEmpty(StackLink*& s)
 {
 	return(s->next == nullptr);
 }
 
-//Ïú»ÙÕ»
+//é”€æ¯æ ˆ
 void DestroyStack(StackLink*& s)
 {
 	StackLink* pre = s, * p = s->next;
