@@ -1,26 +1,26 @@
-//ÕâÊÇÒ»¸öÊµÏÖº¯Êı¹¦ÄÜµÄÎÄ¼ş
+//è¿™æ˜¯ä¸€ä¸ªå®ç°å‡½æ•°åŠŸèƒ½çš„æ–‡ä»¶
 #include"linklist.h"
 
-//»ñµÃÒ»¸öËæ»úÈıÎ»ÕûÊı
+//è·å¾—ä¸€ä¸ªéšæœºä¸‰ä½æ•´æ•°
 int GetRand()
 {
 	return(rand() % 900  + 100);
 }
 
-//³õÊ¼»¯µ¥Á´±í
+//åˆå§‹åŒ–å•é“¾è¡¨
 void  InitList(LNode *& p)
-{   //pÎªµ¥Á´±íµÄÍ·Ö¸Õë
+{   //pä¸ºå•é“¾è¡¨çš„å¤´æŒ‡é’ˆ
 	p = new LNode;
 	if(!p)
 	{
-		cout << "³õÊ¼»¯´íÎó" << endl;
+		cout << "åˆå§‹åŒ–é”™è¯¯" << endl;
 		return;
 	}
 	p->next = NULL;
-	cout << "³õÊ¼»¯³É¹¦£¡" << endl;
+	cout << "åˆå§‹åŒ–æˆåŠŸï¼" << endl;
 }
 
-//Î²²å·¨½¨Á¢Á´±í
+//å°¾æ’æ³•å»ºç«‹é“¾è¡¨
 void CreatList(LNode*& p, DataType a[], int n)
 {
 	LNode* r, * s;
@@ -34,28 +34,28 @@ void CreatList(LNode*& p, DataType a[], int n)
 		r = s;
 	}
 	r->next = NULL;
-	cout << "´´½¨³É¹¦£¡" << endl;
+	cout << "åˆ›å»ºæˆåŠŸï¼" << endl;
 }
 
-//±éÀú²¢Êä³öµ¥Á´±í
+//éå†å¹¶è¾“å‡ºå•é“¾è¡¨
 void TraveList(LNode* p)
 {
 	int i = 1;
 	if (p->next == NULL)
 	{
-		cout<<"¸ÃÁ´±íÊÇ¿Õ±í" << endl;
+		cout<<"è¯¥é“¾è¡¨æ˜¯ç©ºè¡¨" << endl;
 		return;
 	}
 	LNode* L = p->next;
 	while (L != NULL)
 	{
-		cout<<"Á´±íµÄÊı¾İµÚ" << i <<"¸öÔªËØÎª" << L->data << endl;
+		cout<<"é“¾è¡¨çš„æ•°æ®ç¬¬" << i <<"ä¸ªå…ƒç´ ä¸º" << L->data << endl;
 		L = L->next;
 		i++;
 	}
 }
 
-//·µ»ØµÚÒ»¸öÓëÖ¸¶¨ÖµÆ¥ÅäµÄÔªËØÎ»ÖÃ
+//è¿”å›ç¬¬ä¸€ä¸ªä¸æŒ‡å®šå€¼åŒ¹é…çš„å…ƒç´ ä½ç½®
 int Find_item(LNode* p, DataType item)
 {
 	int i = 1;
@@ -71,7 +71,7 @@ int Find_item(LNode* p, DataType item)
 		return i; 
 }
 
-//Ïòµ¥Á´±íµÄÖ¸¶¨Î»ÖÃ²åÈëÔªËØ
+//å‘å•é“¾è¡¨çš„æŒ‡å®šä½ç½®æ’å…¥å…ƒç´ 
 bool Listinsert(LNode*& p, int pos, DataType item)
 {
 	if (pos <= 0)
@@ -95,7 +95,7 @@ bool Listinsert(LNode*& p, int pos, DataType item)
 	}
 }
 
-//ÑéÖ¤²åÈëÊÇ·ñÕıÈ·
+//éªŒè¯æ’å…¥æ˜¯å¦æ­£ç¡®
 bool TraveList_1(LNode*& p, int& pos, int& item)
 {
 	bool T = 0;
@@ -103,10 +103,10 @@ bool TraveList_1(LNode*& p, int& pos, int& item)
 	LNode* L = p->next;
 	while (L != NULL)
 	{
-		cout << "Á´±íµÄÊı¾İµÚ" << i << "¸öÔªËØÎª" << L->data;
+		cout << "é“¾è¡¨çš„æ•°æ®ç¬¬" << i << "ä¸ªå…ƒç´ ä¸º" << L->data;
 		if (i == pos && L->data == item)
 		{
-			cout << "\t²åÈë³É¹¦" ;
+			cout << "\tæ’å…¥æˆåŠŸ" ;
 			T = 1;
 		}
 		cout << endl;
@@ -115,7 +115,7 @@ bool TraveList_1(LNode*& p, int& pos, int& item)
 	}
 	return T;
 }
-//É¾³ıµÚÒ»¸öÓëÖ¸¶¨ÖµÆ¥ÅäµÄÔªËØµÄÁ´±í
+//åˆ é™¤ç¬¬ä¸€ä¸ªä¸æŒ‡å®šå€¼åŒ¹é…çš„å…ƒç´ çš„é“¾è¡¨
 bool Delete_item(LNode*& p, DataType item)
 {
 	LNode* L = p->next, * pre=p;
@@ -127,7 +127,7 @@ bool Delete_item(LNode*& p, DataType item)
 
 	if (L == NULL)
 	{
-		cout << "¸ÃÊı¾İ²»ÔÚµ¥Á´±íÄÚ" << endl;
+		cout << "è¯¥æ•°æ®ä¸åœ¨å•é“¾è¡¨å†…" << endl;
 		return false;
 	}
 
@@ -136,12 +136,12 @@ bool Delete_item(LNode*& p, DataType item)
 		pre->next = L->next;
 		L->next = NULL;
 		delete L;
-		cout << "É¾³ı³É¹¦" << endl;
+		cout << "åˆ é™¤æˆåŠŸ" << endl;
 		return true;
 	}
 }
 
-//·­×ªÁ´±í
+//ç¿»è½¬é“¾è¡¨
 void ReserveList(LNode*& p)
 {
 	LNode* L = p->next, * pre = NULL;
@@ -153,19 +153,19 @@ void ReserveList(LNode*& p)
 		L = Next;
 	}
 	p->next = pre;
-	cout << "·­×ª³É¹¦£¡" << endl << endl;
+	cout << "ç¿»è½¬æˆåŠŸï¼" << endl << endl;
 }
 
-//·Ö¸îÁ´±í
+//åˆ†å‰²é“¾è¡¨
 void SplitList(LNode*& p, int value)
 {
 	if (p == nullptr || p->next == nullptr)
 	{
-		cout << "Á´±íÔªËØÉÙÓÚÁ½¸ö£¬ÎŞĞè½øĞĞ·­×ª" << endl;
+		cout << "é“¾è¡¨å…ƒç´ å°‘äºä¸¤ä¸ªï¼Œæ— éœ€è¿›è¡Œç¿»è½¬" << endl;
 		return;
 	}
 
-	// Á½¸öĞéÄâÍ·½Úµã£¬·Ö±ğÓÃÓÚĞ¡ÓÚ»ù×¼ÖµºÍ´óÓÚµÈÓÚ»ù×¼ÖµµÄÁ´±í
+	// ä¸¤ä¸ªè™šæ‹Ÿå¤´èŠ‚ç‚¹ï¼Œåˆ†åˆ«ç”¨äºå°äºåŸºå‡†å€¼å’Œå¤§äºç­‰äºåŸºå‡†å€¼çš„é“¾è¡¨
 	LNode* lessHead = new LNode;
 	LNode* greaterHead = new LNode;
 	InitList(lessHead);
@@ -173,7 +173,7 @@ void SplitList(LNode*& p, int value)
 	LNode* less = lessHead;
 	LNode* greater = greaterHead;
 
-	// ±éÀúÁ´±í²¢·ÖÀà½Úµã
+	// éå†é“¾è¡¨å¹¶åˆ†ç±»èŠ‚ç‚¹
 	LNode* L = p;
 	while (L != nullptr) 
 	{
@@ -190,16 +190,16 @@ void SplitList(LNode*& p, int value)
 		L = L->next;
 	}
 
-	// ºÏ²¢Á½¸öÁ´±í
+	// åˆå¹¶ä¸¤ä¸ªé“¾è¡¨
 	less->next = greaterHead->next;
-	greater->next = nullptr;  // È·±£ĞÂµÄÁ´±íÎ²²¿Ö¸Ïònullptr
+	greater->next = nullptr;  // ç¡®ä¿æ–°çš„é“¾è¡¨å°¾éƒ¨æŒ‡å‘nullptr
 
-	// ¸üĞÂÁ´±íÍ·
+	// æ›´æ–°é“¾è¡¨å¤´
 	p = lessHead->next;
 
-	// É¾³ıĞéÄâÍ·½áµã
+	// åˆ é™¤è™šæ‹Ÿå¤´ç»“ç‚¹
 	delete lessHead;
 	delete greaterHead;
 
-	cout << "ÒÑ¾­·Ö¸îÍê³É" << endl;
+	cout << "å·²ç»åˆ†å‰²å®Œæˆ" << endl;
 }
