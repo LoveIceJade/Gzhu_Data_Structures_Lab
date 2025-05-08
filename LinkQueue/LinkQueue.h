@@ -2,37 +2,37 @@
 #include <ctime>
 using namespace std;
 
-//»ñµÃÒ»¸öËæ»úÈıÎ»ÕûÊı
+//è·å¾—ä¸€ä¸ªéšæœºä¸‰ä½æ•´æ•°
 int GetRand();
 
 typedef int DataType;
 
 struct QNode
-{ //½áµã½á¹¹
+{ //ç»“ç‚¹ç»“æ„
 	DataType	data;
 	QNode* next;
 };
 
 struct LinkQueue
-{ //¶ÓÁĞ½á¹¹
+{ //é˜Ÿåˆ—ç»“æ„
 	QNode* front;
 	QNode* rear;
 };
 
-//³õÊ¼»¯´øÍ·½áµãµÄÁ´¶ÓÁĞ
+//åˆå§‹åŒ–å¸¦å¤´ç»“ç‚¹çš„é“¾é˜Ÿåˆ—
 void InitQueue(LinkQueue*& Q);
 
-//ÅĞÁ´¶ÓÁĞ¿Õ
+//åˆ¤é“¾é˜Ÿåˆ—ç©º
 bool QueueEmpty(LinkQueue* Q);
 
-//Èë¶Ó
+//å…¥é˜Ÿ
 int EnQueue(LinkQueue*& Q, DataType &item);
 
-//³ö¶Ó
+//å‡ºé˜Ÿ
 int DeQueue(LinkQueue*& Q, DataType& item);
 
-//±éÀú¶ÓÁĞ
+//éå†é˜Ÿåˆ—
 int TraverseQueue(LinkQueue* Q);
 
-//·­×ª¶ÓÁĞ
+//ç¿»è½¬é˜Ÿåˆ—
 void RervseQueue(LinkQueue*& Q);
