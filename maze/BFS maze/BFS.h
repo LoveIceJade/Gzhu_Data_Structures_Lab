@@ -7,35 +7,35 @@ extern int mg[10][10];
 
 struct Box
 {
-	int i, j;  //·½¿éµÄÎ»ÖÃ
-	int pre;   //±¾Â·¾¶ÖĞÉÏÒ»¸ö·½¿éÔÚ¶ÓÁĞÖĞµÄÏÂ±ê
+	int i, j;  //æ–¹å—çš„ä½ç½®
+	int pre;   //æœ¬è·¯å¾„ä¸­ä¸Šä¸€ä¸ªæ–¹å—åœ¨é˜Ÿåˆ—ä¸­çš„ä¸‹æ ‡
 };
 
 struct QuType 
 {
 	Box data[MaxSize];
-	int front, rear;          // ¶ÓÍ·Ö¸ÕëºÍ¶ÓÎ²Ö¸Õë
+	int front, rear;          // é˜Ÿå¤´æŒ‡é’ˆå’Œé˜Ÿå°¾æŒ‡é’ˆ
 };
 
 
-// ³õÊ¼»¯¶ÓÁĞ
+// åˆå§‹åŒ–é˜Ÿåˆ—
 void InitQueue(QuType*& qu);
 
-// Èë¶Ó
+// å…¥é˜Ÿ
 bool enQueue(QuType*& qu, Box e);
 
-// ³ö¶Ó
+// å‡ºé˜Ÿ
 bool deQueue(QuType*& qu, Box& e);
 
-// ¼ì²é¶ÓÁĞÊÇ·ñÎª¿Õ
+// æ£€æŸ¥é˜Ÿåˆ—æ˜¯å¦ä¸ºç©º
 bool QueueEmpty(QuType* qu);
 
-// Ïú»Ù¶ÓÁĞ
+// é”€æ¯é˜Ÿåˆ—
 void DestroyQueue(QuType*& qu);
 
-//²éÕÒÃÔ¹¬×îÓÅÂ·¾¶
+//æŸ¥æ‰¾è¿·å®«æœ€ä¼˜è·¯å¾„
 bool mepath(int xi, int yi, int xe, int ye);
 bool mepath(int xi, int yi, int xe, int ye, int mg[10][10]);
 
-//´òÓ¡Â·¾¶
+//æ‰“å°è·¯å¾„
 void dispapath(QuType* qu, int front);
