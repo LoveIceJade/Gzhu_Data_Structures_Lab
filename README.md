@@ -14,7 +14,10 @@
 - linkList 单链表
 - Stack 链栈
 - LinkQueue 链队
-- maze DFS和DFS走迷宫
+- maze 走迷宫
 - BiTree 二叉树
 - TBTNode 线索二叉树
+- HTree 哈夫曼树
+- Graph 图
 - Sort 排序和搜索
+- ClassProgram 课程大实验
